@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="sq" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="CareerTrack — gjurmues personal i aplikimeve për punë. CareerTrack — personal job application tracker." />
+    <meta name="theme-color" content="#101D2B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CareerTrack" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <title>CareerTrack</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        var theme = 'dark';
+        try {
+          var raw = localStorage.getItem('careertrack.preferences.v1');
+          if (raw) {
+            var saved = JSON.parse(raw);
+            if (saved && (saved.theme === 'light' || saved.theme === 'dark' || saved.theme === 'system')) {
+              theme = saved.theme;
+            }
+          }
+        } catch (error) {
+          theme = 'dark';
+        }
+        if (theme === 'system') {
+          theme =
+            typeof window.matchMedia === 'function' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#101D2B' : '#F4F7F9');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

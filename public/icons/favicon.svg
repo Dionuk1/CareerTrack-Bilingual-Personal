@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CareerTrack">
+  <rect width="64" height="64" rx="16" fill="#101D2B" />
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="15.25" fill="none" stroke="#8FFFE0" stroke-opacity="0.28" stroke-width="1.5" />
+  <path d="M18 41.5 L27 32.5 L32.5 38 L46 24.5" fill="none" stroke="#8FFFE0" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="46" cy="24.5" r="4" fill="#8FFFE0" />
+</svg>
